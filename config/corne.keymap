@@ -9,6 +9,46 @@
 #include <dt-bindings/zmk/keys.h>
 
 / {
+    behaviors {
+        hml: left_home_row_mods {
+            compatible = "zmk,behavior-hold-tap";
+            label = "LEFT_HOME_ROW_MODS";
+            #binding-cells = <2>;
+            flavor = "balanced";
+            tapping-term-ms = <280>;
+            quick-tap-ms = <175>;
+            require-prior-idle-ms = <220>;
+            bindings = <&kp>, <&kp>;
+
+            hold-trigger-key-positions = <RIGHT_KEYS THUMBS>;
+            hold-trigger-on-release;
+        };
+
+        hmr: right_home_row_mods {
+            compatible = "zmk,behavior-hold-tap";
+            label = "RIGHT_HOME_ROW_MODS";
+            #binding-cells = <2>;
+            flavor = "balanced";
+            tapping-term-ms = <280>;
+            quick-tap-ms = <175>;
+            require-prior-idle-ms = <220>;
+            bindings = <&kp>, <&kp>;
+
+            hold-trigger-key-positions = <LEFT_KEYS THUMBS>;
+            hold-trigger-on-release;
+        };
+
+        ht_hyper: hold_tap_hyper {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HOLD_TAP_HYPER";
+            #binding-cells = <2>;
+            flavor = "balanced";
+            tapping-term-ms = <200>;
+            quick-tap-ms = <150>;
+            bindings = <&kp>, <&kp>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
